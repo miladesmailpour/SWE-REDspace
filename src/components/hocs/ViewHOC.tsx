@@ -20,7 +20,6 @@ export default ViewHOC;
 
 const styles: any = StyleSheet.create({
   items: {
-    backgroundColor: "#fff000",
     margin: 10,
     padding: 15,
     flex: 1,

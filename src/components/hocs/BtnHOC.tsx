@@ -25,17 +25,20 @@ export default BtnHOC;
 
 const styles: any = StyleSheet.create({
   btn: {
-    backgroundColor: "#fff",
+    backgroundColor: "#ABB8C3",
     margin: 40,
-    padding: 15,
+    padding: 5,
     flex: 1,
     alignContent: "center",
   },
   btn_inactivite: {
-    backgroundColor: "#fff999",
+    backgroundColor: "#BBAfC3",
     margin: 40,
-    padding: 15,
+    padding: 6,
     flex: 1,
     alignContent: "center",
+  },
+  btn_inner: {
+    color: "#333",
   },
 });
