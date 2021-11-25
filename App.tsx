@@ -13,7 +13,9 @@ import AllReducers from "./src/reducers";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import Details from "./src/components/views/Details";
+import DetailsMovie from "./src/components/views/DetailsMovie";
+import DetailsPlanet from "./src/components/views/DetailsPlanet";
+import DetailsPerson from "./src/components/views/DetailsPerson";
 ////dummy import
 
 //
@@ -33,7 +35,9 @@ export default function App() {
           <Stack.Screen name="People" component={PeopleList} />
           <Stack.Screen name="Planets" component={PlantsList} />
           <Stack.Screen name="Movies" component={MoviesList} />
-          <Stack.Screen name="Details" component={Details} />
+          <Stack.Screen name="MovieDetails" component={DetailsMovie} />
+          <Stack.Screen name="PlanetDetails" component={DetailsPlanet} />
+          <Stack.Screen name="PersonDetails" component={DetailsPerson} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
