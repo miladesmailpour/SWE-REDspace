@@ -4,7 +4,7 @@ import BtnMovies from "../ButtonSWE/BtnMovies";
 import BtnPeople from "../ButtonSWE/BtnPeople";
 import BtnPlanets from "../ButtonSWE/BtnPlanets";
 import { View, Button, StyleSheet } from "react-native";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getMovies, getPeople, getPlanets } from "../../actions";
 
 export type HomeProps = {
@@ -17,7 +17,6 @@ const Home = ({ navigation }: HomeProps) => {
     dispatch(getPeople());
     dispatch(getPlanets());
   }, []);
-
   const combiner = () => {
     return [
       BtnPeople(navigation),
