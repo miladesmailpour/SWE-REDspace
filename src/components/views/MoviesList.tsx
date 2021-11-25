@@ -1,17 +1,18 @@
 import React from "react";
-import ViewHOC from "../hocs/ViewHOC";
 import { FlatList, Text, View, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
 
-const MoviesList = (navigation: any) => {
-  const createCard = (item: any) => {
-    return <Text>{item.name}</Text>;
-  };
-  const handlerClick = () => {
-    navigation.navigate("Details");
-  };
+const MoviesList = ({ navigation }: any) => {
   const data = useSelector((state: any) => state.ReducerMovies);
-
+  const handlerClick = (item: any) => {
+    navigation.navigate("MovieDetails", {
+      data: {
+        title: item.title,
+        director: item.director,
+        producer: item.producer,
+      },
+    });
+  };
   return (
     <View style={styles.container}>
       <FlatList
@@ -20,7 +21,9 @@ const MoviesList = (navigation: any) => {
         renderItem={({ item }) => (
           <Text
             style={styles.items}
-            onPress={() => console.log("It gose to ", item.title, "Details")}
+            onPress={() => {
+              handlerClick(item);
+            }}
           >
             {item.title}
           </Text>

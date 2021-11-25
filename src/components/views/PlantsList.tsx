@@ -1,14 +1,18 @@
 import React from "react";
-import ViewHOC from "../hocs/ViewHOC";
 import { FlatList, Text, View, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
 
-const PlantsList = () => {
-  const createCard = (item: any) => {
-    return <Text>{item.name}</Text>;
-  };
+const PlantsList = ({ navigation }: any) => {
   const data = useSelector((state: any) => state.ReducerPlanets);
-
+  const handlerClick = (item: any) => {
+    navigation.navigate("PlanetDetails", {
+      data: {
+        name: item.name,
+        terrain: item.terrain,
+        population: item.population,
+      },
+    });
+  };
   return (
     <View style={styles.container}>
       <FlatList
@@ -17,7 +21,9 @@ const PlantsList = () => {
         renderItem={({ item }) => (
           <Text
             style={styles.items}
-            onPress={() => console.log("It gose to ", item.name, "Details")}
+            onPress={() => {
+              handlerClick(item);
+            }}
           >
             {item.name}
           </Text>
@@ -25,7 +31,6 @@ const PlantsList = () => {
       />
     </View>
   );
-  // return <Text>Plants List</Text>;
 };
 export default PlantsList;
 

@@ -3,12 +3,21 @@ import ViewHOC from "../hocs/ViewHOC";
 import { FlatList, Text, View, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
 
-const PeopleList = () => {
-  const createCard = (item: any) => {
-    return <Text>{item.name}</Text>;
-  };
+const PeopleList = ({ navigation }: any) => {
   const data = useSelector((state: any) => state.ReducerPeople);
-
+  const handlerClick = (item: any) => {
+    navigation.navigate("PersonDetails", {
+      data: {
+        name: item.name,
+        height: item.height,
+        mass: item.mass,
+        hair_color: item.hair_color,
+        skin_color: item.skin_color,
+        birth_year: item.birth_year,
+        gender: item.gender,
+      },
+    });
+  };
   return (
     <View style={styles.container}>
       <FlatList
@@ -17,7 +26,9 @@ const PeopleList = () => {
         renderItem={({ item }) => (
           <Text
             style={styles.items}
-            onPress={() => console.log("It gose to ", item.name, "Details")}
+            onPress={() => {
+              handlerClick(item);
+            }}
           >
             {item.name}
           </Text>
