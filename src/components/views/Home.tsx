@@ -3,9 +3,11 @@ import ViewHOC from "../hocs/ViewHOC";
 import BtnMovies from "../ButtonSWE/BtnMovies";
 import BtnPeople from "../ButtonSWE/BtnPeople";
 import BtnPlanets from "../ButtonSWE/BtnPlanets";
-import { View, Button, StyleSheet } from "react-native";
+import { View, Button, StyleSheet, ImageBackground } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { getMovies, getPeople, getPlanets } from "../../actions";
+
+const image = require("../../../assets/img/bgSWHome.png");
 
 export type HomeProps = {
   navigation: any;
@@ -26,7 +28,9 @@ const Home = ({ navigation }: HomeProps) => {
   };
   return (
     <View style={styles.container}>
-      <ViewHOC tag={combiner()} />
+      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+        <ViewHOC tag={combiner()} />
+      </ImageBackground>
     </View>
   );
 };
@@ -34,10 +38,13 @@ export default Home;
 
 const styles: any = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
     margin: 5,
     flex: 1,
     alignContent: "center",
     textAlignVertical: "center",
+  },
+  image: {
+    flex: 1,
+    justifyContent: "center",
   },
 });
