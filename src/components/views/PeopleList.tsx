@@ -22,7 +22,7 @@ const PeopleList = ({ navigation }: any) => {
     <View style={styles.container}>
       <FlatList
         keyExtractor={(item: any) => item.name}
-        data={data}
+        data={data[0].response}
         renderItem={({ item }) => (
           <Text
             style={styles.items}

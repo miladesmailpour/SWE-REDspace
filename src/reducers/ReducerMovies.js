@@ -4,8 +4,8 @@ import * as url from "../urlPath";
 export const ReducerMovies = (state = [], action) => {
   switch (action.type) {
     case "GET_MOVIES":
-      return action.payload;
+      return [...state, { response: action.payload.response }];
     default:
-      return state;
+      return [...state];
   }
 };

@@ -4,6 +4,7 @@ import BtnHOC from "../hocs/BtnHOC";
 
 const BtnMovies = (navigation: any) => {
   const data = useSelector((state: any) => state.ReducerMovies);
+
   const handlerClick = () => {
     navigation.navigate("Movies");
   };

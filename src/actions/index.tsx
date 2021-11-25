@@ -18,7 +18,7 @@ export const getPeople = () => {
 
     dispatch({
       type: "GET_PEOPLE",
-      payload: response,
+      payload: { response: response },
     });
   };
 };
@@ -40,7 +40,7 @@ export const getPlanets = () => {
 
     dispatch({
       type: "GET_PLANETS",
-      payload: response,
+      payload: { response: response },
     });
   };
 };
@@ -62,7 +62,7 @@ export const getMovies = () => {
 
     dispatch({
       type: "GET_MOVIES",
-      payload: response,
+      payload: { response: response },
     });
   };
 };

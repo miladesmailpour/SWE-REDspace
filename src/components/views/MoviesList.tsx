@@ -17,7 +17,7 @@ const MoviesList = ({ navigation }: any) => {
     <View style={styles.container}>
       <FlatList
         keyExtractor={(item: any) => item.title}
-        data={data}
+        data={data[0].response}
         renderItem={({ item }) => (
           <Text
             style={styles.items}
